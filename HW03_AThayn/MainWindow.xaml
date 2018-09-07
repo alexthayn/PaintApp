@@ -5,8 +5,114 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW03_AThayn"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="700" Width="800"
+        SizeToContent="WidthAndHeight">
+
+    <Window.Resources> 
+        <Style x:Key="myPaintButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.5" />
+                                <Setter Property="Width" Value="50"/>
+                                <Setter Property="Height" Value="50"/>
+                                <Setter Property="Margin" Value="0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="myPageSelectionButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Width" Value="125"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
         
-    </Grid>
+        <!--Options-->
+        <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Pig</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Bird</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Llama</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Bear</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Fish</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Turtle</Button>
+        </WrapPanel>
+        
+        <!--Color Pallete Grid-->
+        <Grid DockPanel.Dock="Left" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Click="BtnColorSelected" Background="Red" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="GreenYellow" Grid.Row="1" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="ForestGreen" Grid.Row="2" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="SkyBlue" Grid.Row="3" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="DodgerBlue" Grid.Row="4" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="HotPink" Grid.Row="5" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="LightPink" Grid.Row="6" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="SaddleBrown" Grid.Row="7" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="LightGray" Grid.Row="8" Style="{StaticResource myPaintButton}"/>
+
+            <Button Click="BtnColorSelected" Background="OrangeRed" Grid.Column="1" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="Yellow" Grid.Column="1" Grid.Row="1" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="DarkGreen" Grid.Column="1" Grid.Row="2" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="DeepSkyBlue" Grid.Column="1" Grid.Row="3" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="DarkBlue" Grid.Column="1" Grid.Row="4" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="DeepPink" Grid.Column="1" Grid.Row="5" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="PeachPuff" Grid.Column="1" Grid.Row="6" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="RosyBrown" Grid.Column="1" Grid.Row="7" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="Gray" Grid.Column="1" Grid.Row="8" Style="{StaticResource myPaintButton}"/>
+
+            <Button Click="BtnColorSelected" Background="DarkOrange" Grid.Column="2" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="Gold" Grid.Column="2" Grid.Row="1" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="Teal" Grid.Column="2" Grid.Row="2" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="Indigo" Grid.Column="2" Grid.Row="3" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="Purple" Grid.Column="2" Grid.Row="4" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="MediumPurple" Grid.Column="2" Grid.Row="5" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="Violet" Grid.Column="2" Grid.Row="6" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="White" Grid.Column="2" Grid.Row="7" Style="{StaticResource myPaintButton}"/>
+            <Button Click="BtnColorSelected" Background="Black" Grid.Column="2" Grid.Row="8" Style="{StaticResource myPaintButton}"/>
+
+            <Rectangle Name="RctColorSelected" Grid.Row="9" Grid.Column="2" Width="40" Height="40" Fill="Transparent" Margin="0, 20" Stroke="LightGray" StrokeThickness="1"/>
+            <TextBlock Grid.Row="9" Grid.ColumnSpan="2" VerticalAlignment="Center" FontStyle="Italic" FontSize="15">Selected Color</TextBlock>
+        </Grid>
+        
+        <!--Coloring Image-->
+        <Grid Name="GridColoringPage" DockPanel.Dock="Right" Height="500" Width="500" Margin="5">
+            <Image Name ="ColoringPage" Source="ColoringPages/Pig.gif"/>
+        </Grid>
+
+
+    </DockPanel>
 </Window>
