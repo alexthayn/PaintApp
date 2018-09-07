@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW03_AThayn"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="800"
+        Title="Coloring Book" Height="700" Width="800"
         SizeToContent="WidthAndHeight">
 
     <Window.Resources> 
@@ -45,12 +45,12 @@
         
         <!--Options-->
         <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Pig</Button>
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Bird</Button>
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Llama</Button>
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Bear</Button>
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Fish</Button>
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}">Turtle</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="HotPink">Pig</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="Orange">Bird</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="Gold">Llama</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="MediumSeaGreen">Bear</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="DodgerBlue">Fish</Button>
+            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="MediumPurple">Turtle</Button>
         </WrapPanel>
         
         <!--Color Pallete Grid-->
@@ -111,6 +111,15 @@
         <!--Coloring Image-->
         <Grid Name="GridColoringPage" DockPanel.Dock="Right" Height="500" Width="500" Margin="5">
             <Image Name ="ColoringPage" Source="ColoringPages/Pig.gif"/>
+            <Grid.Style>
+                <Style TargetType="{x:Type Grid}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Pen"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
         </Grid>
 
 

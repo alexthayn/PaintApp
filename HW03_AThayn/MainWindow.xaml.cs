@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
+using System.IO;
 
 namespace HW03_AThayn
 {
@@ -21,23 +23,21 @@ namespace HW03_AThayn
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Brush _selectedColor = Brushes.White;
+        byte[] imageArray;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        public Brush SelectedColor
+        public Brush SelectedColor { get; set; } = Brushes.White;
+
+        public byte[] ImageToBitmap(Image img)
         {
-            get
-            {
-                return _selectedColor;
-            }
-            set
-            {
-                _selectedColor = value;
-            }
+            //return (byte[])(new ImageSourceConverter()).ConvertTo(img, typeof(byte[]));
+            //return System.IO.File.ReadAllBytes((img.Source as BitmapImage).UriSource.OriginalString);
+            // Not developed yet.
+            throw new NotImplementedException();
         }
 
         public void BtnColorSelected(object sender, RoutedEventArgs e)
@@ -55,7 +55,7 @@ namespace HW03_AThayn
             switch(button.Content)
             {
                 case "Llama":
-                    image.Source = new BitmapImage(new Uri("pack://application:,,,/ColoringPages/Llama.jpg"));                    
+                    image.Source = new BitmapImage(new Uri("pack://application:,,,/ColoringPages/Llama.jpg"));
                     break;
                 case "Bear":
                     image.Source = new BitmapImage(new Uri("pack://application:,,,/ColoringPages/Bear.jpg"));
@@ -73,6 +73,8 @@ namespace HW03_AThayn
                     image.Source = new BitmapImage(new Uri("pack://application:,,,/ColoringPages/Pig.gif"));
                     break;                   
             }
+
+            //imageArray = ImageToBitmap(image);
             image.Stretch = Stretch.Uniform;
             ColoringPage.Source = image.Source;
         }
