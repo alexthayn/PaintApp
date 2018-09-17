@@ -17,7 +17,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Ink;
 
-namespace HW03_AThayn
+namespace HW04_AThayn
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -117,7 +117,6 @@ namespace HW03_AThayn
 
         private void DrawingCanvas_StylusDown(object sender, StylusDownEventArgs e)
         {
-            Stylus.Capture(this);
 
             stylusPoints = new StylusPointCollection();
             StylusPointCollection eventPoints =

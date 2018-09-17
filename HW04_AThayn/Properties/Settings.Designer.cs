@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HW03_AThayn.Properties
+namespace HW04_AThayn.Properties
 {
 
 
