@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW03_AThayn", "HW03_AThayn\HW03_AThayn.csproj", "{156FAC52-6A8A-4D54-A79A-AA914C8E10A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW04_AThayn", "HW03_AThayn\HW04_AThayn.csproj", "{156FAC52-6A8A-4D54-A79A-AA914C8E10A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

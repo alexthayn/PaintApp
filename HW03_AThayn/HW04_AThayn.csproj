@@ -94,22 +94,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ColoringPages\Bear.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="ColoringPages\Bird.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="ColoringPages\Llama.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Drawing Icons\eraser-outline.png" />
+    <Resource Include="Drawing Icons\paintbrush.png" />
+    <Resource Include="Drawing Icons\pencil-striped-outlined-tool-in-diagonal-position %283%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ColoringPages\Pig.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ColoringPages\Fish.jpg" />
-    <Resource Include="ColoringPages\Turtle.jpg" />
+    <Resource Include="Drawing Icons\LargePaintBrush.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

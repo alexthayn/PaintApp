@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW03_AThayn"
         mc:Ignorable="d"
-        Title="Coloring Book" Height="700" Width="800"
+        Title="My Paint Program" Height="700" Width="800"
         SizeToContent="WidthAndHeight">
 
     <Window.Resources> 
@@ -42,17 +42,6 @@
         </Style>
     </Window.Resources>
     <DockPanel>
-        
-        <!--Options-->
-        <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="HotPink">Pig</Button>
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="Orange">Bird</Button>
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="Gold">Llama</Button>
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="MediumSeaGreen">Bear</Button>
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="DodgerBlue">Fish</Button>
-            <Button Click="BtnPageSelected" Style="{StaticResource myPageSelectionButton}" FontSize="15" FontWeight="Medium" Background="MediumPurple">Turtle</Button>
-        </WrapPanel>
-        
         <!--Color Pallete Grid-->
         <Grid DockPanel.Dock="Left" Margin="20">
             <Grid.RowDefinitions>
@@ -108,20 +97,58 @@
             <TextBlock Grid.Row="9" Grid.ColumnSpan="2" VerticalAlignment="Center" FontStyle="Italic" FontSize="15">Selected Color</TextBlock>
         </Grid>
         
-        <!--Coloring Image-->
-        <Grid Name="GridColoringPage" DockPanel.Dock="Right" Height="500" Width="500" Margin="5">
-            <Image Name ="ColoringPage" Source="ColoringPages/Pig.gif"/>
-            <Grid.Style>
-                <Style TargetType="{x:Type Grid}">
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Pen"></Setter>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
+        <!--Coloring Canvas-->
+        <InkCanvas Name="DrawingCanvas" 
+                   MinHeight="600" MinWidth="500" 
+                   Margin="5"
+                   TouchDown="DrawingCanvas_OnTouchDown"
+                   TouchMove="DrawingCanvas_OnTouchMove"
+                   TouchUp="DrawingCanvas_OnTouchUp"
+                   StylusDown="DrawingCanvas_StylusDown"
+                   StylusUp="DrawingCanvas_StylusUp"
+                   StylusMove="DrawingCanvas_StylusMove">
+            <InkCanvas.DefaultDrawingAttributes>
+                <DrawingAttributes x:Name="strokeAttr" Width="3" Height="3" Color="Black"/>
+            </InkCanvas.DefaultDrawingAttributes>
+        </InkCanvas>
+        
+        <!--Drawing Tools-->
+        <Grid DockPanel.Dock="Right" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button Name="LargeBrush" Click="BtnToolSelected" Grid.Row="1" Style="{StaticResource myPaintButton}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Drawing Icons/LargePaintBrush.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button Name="Brush" Click="BtnToolSelected" Grid.Row="2" Style="{StaticResource myPaintButton}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Drawing Icons/paintbrush.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button Name="Pencil" Click="BtnToolSelected" Grid.Row="3" Style="{StaticResource myPaintButton}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Drawing Icons/pencil-striped-outlined-tool-in-diagonal-position (3).png"/>
+                </Button.Background>
+            </Button>
+
+            <Button Name="Eraser" Click="BtnToolSelected" Grid.Row="4" Style="{StaticResource myPaintButton}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Drawing Icons/eraser-outline.png"/>
+                </Button.Background>
+            </Button>
         </Grid>
-
-
     </DockPanel>
 </Window>
